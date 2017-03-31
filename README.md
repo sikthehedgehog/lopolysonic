@@ -1,6 +1,30 @@
 # Lopoly Sonic
 
+How could have Sonic looked like in the Saturn era? Sure, we got Sonic R, the
+special stages in Sonic 3D and the small sandbox in Sonic Jam, but I'm not
+happy with how Sonic's model looked in those at all. But the Saturn hardware
+is quite weak (and the whole 5th generation for that matter), so this is not
+an easy task. This is an attempt to see how Sonic could have looked like
+with those limitations in mind.
+
+Not a 100% exact recreation of the limits (I just wanted something quick to
+experiment with), but should be good enough to get an idea.
+
+*To-do: upload some pics here*
+
 ## F.A.Q.
+
+### How do you build this?
+
+Build all C files together and link against SDL2 and OpenGL.
+
+### Won't Sega sue you?
+
+Sega is well known to not mind about non-commercial Sonic fangames (and when
+they really do, they'll just send a warning first). They are *not* Nintendo.
+
+Note that if you intend to use this code in commercial stuff, you'll have to
+remove anything related to Sonic.
 
 ### What are you planning to do with this?
 
