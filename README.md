@@ -10,7 +10,9 @@ with those limitations in mind.
 Not a 100% exact recreation of the limits (I just wanted something quick to
 experiment with), but should be good enough to get an idea.
 
-*To-do: upload some pics here*
+You can see screenshots in the `screenshots` directory.
+
+![](screenshots/screenshot-1.png)
 
 ## Download
 
