@@ -12,11 +12,35 @@ experiment with), but should be good enough to get an idea.
 
 *To-do: upload some pics here*
 
+## Download
+
+There are a few prebuilt binaries here if you don't want to build it yourself:
+
+* `bin-linux` for the Linux version (64-bit)
+   * Needs SDL2 installed
+* `bin-windows` for the Windows version (32-bit)
+   * `SDL2.dll` taken straight from the [SDL site](http://libsdl.org/download-2.0.php)
+
+Note that the Windows port is experimental, and by that I mean it'll crash
+as soon as you quit the program (・～・) Trying to see how to fix it (I guess
+that building against a patched SDL 2.0.4-9174 but using the SDL 2.0.5 DLL
+isn't helping matters, I need to get up to date)
+
 ## F.A.Q.
 
 ### How do you build this?
 
 Build all C files together and link against SDL2 and OpenGL.
+
+* For Linux, this means linking against `-lSDL2 -lGL`
+* For Windows, this means linking against `-lSDL2 -lopengl32`
+   * and you may need `-static-libgcc -static-libstdc++`
+
+You could also use the Code::Blocks projects (`losonic.cbp` for Linux,
+`losonic_win.cbp` for Windows), but beware that they've been set up for my
+environment and changing the toolchain they use can be a horrible mess.
+
+(note: all the above assumes MinGW-w64 for Windows)
 
 ### Won't Sega sue you?
 
@@ -36,6 +60,10 @@ shot at it to see how good it could look in about the same amount of polygons.
 
 Because I want to use X for spindash (the position of the keys would gimmick
 A/B/C on a Saturn controller).
+
+### So when will you add the spindash?
+
+When I stop being lazy :P
 
 ### Why did you use OpenGL 1.1? Didn't you know you should be using Vulkan?
 

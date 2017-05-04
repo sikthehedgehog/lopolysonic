@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6" />
+	<Project>
+		<Option title="losonic" />
+		<Option pch_mode="2" />
+		<Option compiler="gcc" />
+		<Build>
+			<Target title="Debug">
+				<Option output="losonic_d" prefix_auto="1" extension_auto="1" />
+				<Option object_output="lobj/Debug/" />
+				<Option type="1" />
+				<Option compiler="gcc" />
+				<Compiler>
+					<Add option="-g" />
+				</Compiler>
+			</Target>
+			<Target title="Release">
+				<Option output="losonic" prefix_auto="1" extension_auto="1" />
+				<Option object_output="lobj/Release/" />
+				<Option type="1" />
+				<Option compiler="gcc" />
+				<Compiler>
+					<Add option="-O3" />
+				</Compiler>
+				<Linker>
+					<Add option="-s" />
+				</Linker>
+			</Target>
+		</Build>
+		<VirtualTargets>
+			<Add alias="All" targets="Debug;Release;" />
+		</VirtualTargets>
+		<Compiler>
+			<Add option="-Wextra" />
+			<Add option="-Wall" />
+			<Add option="-std=c99" />
+		</Compiler>
+		<Linker>
+			<Add option="-lSDL2 -lGL" />
+		</Linker>
+		<Unit filename="billboard.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="billboard.h" />
+		<Unit filename="camera.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="camera.h" />
+		<Unit filename="entity.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="entity.h" />
+		<Unit filename="input.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="input.h" />
+		<Unit filename="main.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="model_monitor.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="model_monitor.h" />
+		<Unit filename="model_ring.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="model_ring.h" />
+		<Unit filename="model_sonic.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="model_sonic.h" />
+		<Unit filename="monitor.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="monitor.h" />
+		<Unit filename="physics.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="physics.h" />
+		<Unit filename="ring.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="ring.h" />
+		<Unit filename="shadow.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="shadow.h" />
+		<Unit filename="sonic.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="sonic.h" />
+		<Unit filename="stb_image.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="stb_image.h" />
+		<Unit filename="texture.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="texture.h" />
+		<Unit filename="timer.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="timer.h" />
+		<Unit filename="util.h" />
+		<Unit filename="video.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="video.h" />
+		<Extensions>
+			<code_completion />
+			<debugger />
+		</Extensions>
+	</Project>
+</CodeBlocks_project_file>
