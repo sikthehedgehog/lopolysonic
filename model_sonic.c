@@ -4,6 +4,23 @@
 #include "texture.h"
 #include "util.h"
 
+#define BLUE_SHADE_1    glColor3ub(0x00,0x00,0xFF)
+#define BLUE_SHADE_2    glColor3ub(0x00,0x00,0xD0)
+#define BLUE_SHADE_3    glColor3ub(0x00,0x00,0xA0)
+#define BLUE_SHADE_4    glColor3ub(0x00,0x00,0x70)
+#define BLUE_SHADE_5    glColor3ub(0x00,0x00,0x40)
+#define RED_SHADE_1     glColor3ub(0xFF,0x00,0x00)
+#define RED_SHADE_2     glColor3ub(0xD0,0x00,0x00)
+#define RED_SHADE_3     glColor3ub(0xA0,0x00,0x00)
+#define RED_SHADE_4     glColor3ub(0x70,0x00,0x00)
+#define FLESH_SHADE_1   glColor3ub(0xFF,0xC0,0xA0)
+#define FLESH_SHADE_2   glColor3ub(0xD0,0x90,0x70)
+#define FLESH_SHADE_3   glColor3ub(0xA0,0x60,0x40)
+#define WHITE_SHADE_1   glColor3ub(0xFF,0xFF,0xFF)
+#define WHITE_SHADE_2   glColor3ub(0xD0,0xD0,0xD0)
+#define WHITE_SHADE_3   glColor3ub(0xA0,0xA0,0xA0)
+#define WHITE_SHADE_4   glColor3ub(0x80,0x80,0x80)
+
 static unsigned model_face;
 static unsigned model_head;
 static unsigned model_torso;
@@ -59,7 +76,7 @@ static unsigned generate_sonic_face(void)
    glNewList(list, GL_COMPILE);
 
    // Don't color the texture
-   glColor3ub(0xFF, 0xFF, 0xFF);
+   WHITE_SHADE_1;
 
    // Eyes
    glBegin(GL_TRIANGLE_STRIP);
@@ -132,7 +149,7 @@ static unsigned generate_sonic_head(void)
 
    // Top of face
    glBegin(GL_TRIANGLE_FAN);
-   glColor3ub(0x00, 0x00, 0xFF);
+   BLUE_SHADE_1;
    glVertex3f(3, 16, 0);
    glVertex3f(3, 12, 6);
    glVertex3f(8, 12, 0);
@@ -141,7 +158,7 @@ static unsigned generate_sonic_head(void)
 
    // Bottom of face
    glBegin(GL_TRIANGLES);
-   glColor3ub(0x00, 0x00, 0xFF);
+   BLUE_SHADE_1;
    glVertex3f(2, 0, 4);
    glVertex3f(2, 0, -4);
    glVertex3f(6, 0, 0);
@@ -149,52 +166,52 @@ static unsigned generate_sonic_head(void)
 
    // Around his face
    glBegin(GL_TRIANGLE_STRIP);
-   glColor3ub(0x00, 0x00, 0xC0);
+   BLUE_SHADE_3;
    glVertex3f(-1, 0, 4);
-   glColor3ub(0x00, 0x00, 0xFF);
+   BLUE_SHADE_1;
    glVertex3f(2, 0, 4);
-   glColor3ub(0x00, 0x00, 0xC0);
+   BLUE_SHADE_3;
    glVertex3f(-5, 4, 6);
-   glColor3ub(0x00, 0x00, 0xFF);
+   BLUE_SHADE_1;
    glVertex3f(3, 4, 6);
-   glColor3ub(0x00, 0x00, 0xE0);
+   BLUE_SHADE_2;
    glVertex3f(-5, 12, 6);
-   glColor3ub(0x00, 0x00, 0xFF);
+   BLUE_SHADE_1;
    glVertex3f(3, 12, 6);
-   glColor3ub(0x00, 0x00, 0xFF);
+   BLUE_SHADE_1;
    glVertex3f(-5, 16, 0);
-   glColor3ub(0x00, 0x00, 0xFF);
+   BLUE_SHADE_1;
    glVertex3f(3, 16, 0);
-   glColor3ub(0x00, 0x00, 0xE0);
+   BLUE_SHADE_2;
    glVertex3f(-5, 12, -6);
-   glColor3ub(0x00, 0x00, 0xFF);
+   BLUE_SHADE_1;
    glVertex3f(3, 12, -6);
-   glColor3ub(0x00, 0x00, 0xC0);
+   BLUE_SHADE_3;
    glVertex3f(-5, 4, -6);
-   glColor3ub(0x00, 0x00, 0xFF);
+   BLUE_SHADE_1;
    glVertex3f(3, 4, -6);
-   glColor3ub(0x00, 0x00, 0xC0);
+   BLUE_SHADE_3;
    glVertex3f(-1, 0, -4);
-   glColor3ub(0x00, 0x00, 0xFF);
+   BLUE_SHADE_1;
    glVertex3f(2, 0, -4);
-   glColor3ub(0x00, 0x00, 0xC0);
+   BLUE_SHADE_3;
    glVertex3f(-1, 0, 4);
-   glColor3ub(0x00, 0x00, 0xFF);
+   BLUE_SHADE_1;
    glVertex3f(2, 0, 4);
    glEnd();
 
    // Right ear
    glBegin(GL_TRIANGLES);
-   glColor3ub(0xFF, 0xC0, 0xA0);
+   FLESH_SHADE_1;
    glVertex3f(2, 12, 6);
    glVertex3f(2, 15, 1.5);
-   glColor3ub(0xC0, 0x80, 0x60);
+   FLESH_SHADE_3;
    glVertex3f(2, 18, 5);
    glEnd();
    glBegin(GL_TRIANGLE_FAN);
-   glColor3ub(0x00, 0x00, 0xFF);
+   BLUE_SHADE_1;
    glVertex3f(2, 18, 5);
-   glColor3ub(0x00, 0x00, 0xE0);
+   BLUE_SHADE_2;
    glVertex3f(2, 15, 1.5);
    glVertex3f(-2, 14, 3);
    glVertex3f(2, 12, 6);
@@ -202,16 +219,16 @@ static unsigned generate_sonic_head(void)
 
    // Left ear
    glBegin(GL_TRIANGLES);
-   glColor3ub(0xFF, 0xC0, 0xA0);
+   FLESH_SHADE_1;
    glVertex3f(2, 15, -1.5);
    glVertex3f(2, 12, -6);
-   glColor3ub(0xC0, 0x80, 0x60);
+   FLESH_SHADE_3;
    glVertex3f(2, 18, -5);
    glEnd();
    glBegin(GL_TRIANGLE_FAN);
-   glColor3ub(0x00, 0x00, 0xFF);
+   BLUE_SHADE_1;
    glVertex3f(2, 18, -5);
-   glColor3ub(0x00, 0x00, 0xE0);
+   BLUE_SHADE_2;
    glVertex3f(2, 12, -6);
    glVertex3f(-2, 14, -3);
    glVertex3f(2, 15, -1.5);
@@ -219,89 +236,89 @@ static unsigned generate_sonic_head(void)
 
    // Top middle quill
    glBegin(GL_TRIANGLE_FAN);
-   glColor3ub(0x00, 0x00, 0xC0);
+   BLUE_SHADE_3;
    glVertex3f(-12, 13, 0);
-   glColor3ub(0x00, 0x00, 0xFF);
+   BLUE_SHADE_1;
    glVertex3f(-5, 16, 0);
-   glColor3ub(0x00, 0x00, 0xE0);
+   BLUE_SHADE_2;
    glVertex3f(-5, 12, -6);
-   glColor3ub(0x00, 0x00, 0x80);
+   BLUE_SHADE_5;
    glVertex3f(-6, 9, 0);
-   glColor3ub(0x00, 0x00, 0xE0);
+   BLUE_SHADE_2;
    glVertex3f(-5, 12, 6);
-   glColor3ub(0x00, 0x00, 0xFF);
+   BLUE_SHADE_1;
    glVertex3f(-5, 16, 0);
    glEnd();
 
    // Top right quill
    glBegin(GL_TRIANGLE_FAN);
-   glColor3ub(0x00, 0x00, 0xC0);
+   BLUE_SHADE_3;
    glVertex3f(-12, 3, 8);
-   glColor3ub(0x00, 0x00, 0xE0);
+   BLUE_SHADE_2;
    glVertex3f(-5, 12, 6);
-   glColor3ub(0x00, 0x00, 0xC0);
+   BLUE_SHADE_3;
    glVertex3f(-6, 9, 0);
-   glColor3ub(0x00, 0x00, 0xE0);
+   BLUE_SHADE_2;
    glVertex3f(-5, 4, 6);
-   glColor3ub(0x00, 0x00, 0xE0);
+   BLUE_SHADE_2;
    glVertex3f(-5, 12, 6);
    glEnd();
 
    // Top left quill
    glBegin(GL_TRIANGLE_FAN);
-   glColor3ub(0x00, 0x00, 0xC0);
+   BLUE_SHADE_3;
    glVertex3f(-12, 3, -8);
-   glColor3ub(0x00, 0x00, 0xE0);
+   BLUE_SHADE_2;
    glVertex3f(-5, 12, -6);
-   glColor3ub(0x00, 0x00, 0xE0);
+   BLUE_SHADE_2;
    glVertex3f(-5, 4, -6);
-   glColor3ub(0x00, 0x00, 0xC0);
+   BLUE_SHADE_3;
    glVertex3f(-6, 9, 0);
-   glColor3ub(0x00, 0x00, 0xE0);
+   BLUE_SHADE_2;
    glVertex3f(-5, 12, -6);
    glEnd();
 
    // Bottom middle quill
    glBegin(GL_TRIANGLE_FAN);
-   glColor3ub(0x00, 0x00, 0xA0);
+   BLUE_SHADE_4;
    glVertex3f(-12, -1, 0);
-   glColor3ub(0x00, 0x00, 0xC0);
+   BLUE_SHADE_3;
    glVertex3f(-5, 4, 6);
-   glColor3ub(0x00, 0x00, 0xFF);
+   BLUE_SHADE_1;
    glVertex3f(-6, 9, 0);
-   glColor3ub(0x00, 0x00, 0xC0);
+   BLUE_SHADE_3;
    glVertex3f(-5, 4, -6);
-   glColor3ub(0x00, 0x00, 0xC0);
+   BLUE_SHADE_3;
    glVertex3f(-1, 0, 0);
-   glColor3ub(0x00, 0x00, 0xC0);
+   BLUE_SHADE_3;
    glVertex3f(-5, 4, 6);
    glEnd();
 
    // Bottom right quill
    glBegin(GL_TRIANGLE_FAN);
-   glColor3ub(0x00, 0x00, 0xC0);
+   BLUE_SHADE_3;
    glVertex3f(-9, -4, 7);
-   glColor3ub(0x00, 0x00, 0xA0);
+   BLUE_SHADE_4;
    glVertex3f(-1, 0, 0);
-   glColor3ub(0x00, 0x00, 0xC0);
+   BLUE_SHADE_3;
    glVertex3f(-1, 0, 4);
-   glColor3ub(0x00, 0x00, 0xE0);
+   BLUE_SHADE_2;
    glVertex3f(-5, 4, 6);
-   glColor3ub(0x00, 0x00, 0x80);
+   BLUE_SHADE_5;
    glVertex3f(-1, 0, 0);
    glEnd();
 
    // Bottom left quill
    glBegin(GL_TRIANGLE_FAN);
-   glColor3ub(0x00, 0x00, 0xC0);
+   BLUE_SHADE_3;
    glVertex3f(-9, -4, -7);
-   glColor3ub(0x00, 0x00, 0xA0);
+   BLUE_SHADE_4;
    glVertex3f(-1, 0, 0);
-   glColor3ub(0x00, 0x00, 0xE0);
+   BLUE_SHADE_2;
    glVertex3f(-5, 4, -6);
-   glColor3ub(0x00, 0x00, 0xC0);
+   BLUE_SHADE_3;
    glVertex3f(-1, 0, -4);
-   glColor3ub(0x00, 0x00, 0x80);
+   BLUE_SHADE_5;
    glVertex3f(-1, 0, 0);
    glEnd();
 
@@ -325,57 +342,59 @@ static unsigned generate_sonic_torso(void)
 
    // Belly
    glBegin(GL_TRIANGLE_FAN);
-   glColor3ub(0xFF, 0xC0, 0xA0);
+   FLESH_SHADE_1;
    glVertex3f(4, 0, 0);
    glVertex3f(2, 3, -3);
    glVertex3f(2, 4, 0);
    glVertex3f(2, 3, 3);
-   glColor3ub(0xC0, 0x80, 0x60);
+   FLESH_SHADE_2;
    glVertex3f(2, -3, 3);
+   FLESH_SHADE_3;
    glVertex3f(2, -4, 0);
+   FLESH_SHADE_2;
    glVertex3f(2, -3, -3);
-   glColor3ub(0xFF, 0xC0, 0xA0);
+   FLESH_SHADE_1;
    glVertex3f(2, 3, -3);
    glEnd();
 
    // Body
    glBegin(GL_TRIANGLE_STRIP);
-   glColor3ub(0x00, 0x00, 0xFF);
+   BLUE_SHADE_1;
    glVertex3f(2, 3, -3);
    glVertex3f(-2, 4, -4);
    glVertex3f(2, 4, 0);
    glVertex3f(-2, 5, 0);
    glVertex3f(2, 3, 3);
    glVertex3f(-2, 4, 4);
-   glColor3ub(0x00, 0x00, 0xC0);
+   BLUE_SHADE_3;
    glVertex3f(2, -3, 3);
    glVertex3f(-2, -4, 4);
-   glColor3ub(0x00, 0x00, 0x80);
+   BLUE_SHADE_5;
    glVertex3f(2, -4, 0);
    glVertex3f(-2, -5, 0);
-   glColor3ub(0x00, 0x00, 0xC0);
+   BLUE_SHADE_3;
    glVertex3f(2, -3, -3);
    glVertex3f(-2, -4, -4);
-   glColor3ub(0x00, 0x00, 0xFF);
+   BLUE_SHADE_1;
    glVertex3f(2, 3, -3);
    glVertex3f(-2, 4, -4);
    glEnd();
 
    // Back
    glBegin(GL_TRIANGLE_FAN);
-   glColor3ub(0x00, 0x00, 0xC0);
+   BLUE_SHADE_3;
    glVertex3f(-5, 0, 0);
-   glColor3ub(0x00, 0x00, 0xFF);
+   BLUE_SHADE_1;
    glVertex3f(-2, 4, 4);
    glVertex3f(-2, 5, 0);
    glVertex3f(-2, 4, -4);
-   glColor3ub(0x00, 0x00, 0xC0);
+   BLUE_SHADE_3;
    glVertex3f(-2, -4, -4);
-   glColor3ub(0x00, 0x00, 0x80);
+   BLUE_SHADE_5;
    glVertex3f(-2, -5, 0);
-   glColor3ub(0x00, 0x00, 0xC0);
+   BLUE_SHADE_3;
    glVertex3f(-2, -4, 4);
-   glColor3ub(0x00, 0x00, 0xFF);
+   BLUE_SHADE_1;
    glVertex3f(-2, 4, 4);
    glEnd();
 
@@ -399,41 +418,41 @@ static unsigned generate_sonic_arm(void)
 
    // Main part
    glBegin(GL_TRIANGLE_STRIP);
-   glColor3ub(0xC0, 0x80, 0x60);
-   glVertex3f(1, -1, 3);
-   glVertex3f(1.0, -1.0, -3);
-   glColor3ub(0xFF, 0xC0, 0xA0);
-   glVertex3f(1, 1, 3);
-   glVertex3f(1.0, 1.0, -3);
-   glColor3ub(0xFF, 0xC0, 0xA0);
-   glVertex3f(-0.75, 0.75, 3);
-   glVertex3f(-1.0, 1.0, -3);
-   glColor3ub(0xC0, 0x80, 0x60);
-   glVertex3f(-0.75, -0.75, 3);
-   glVertex3f(-1.0, -1.0, -3);
-   glColor3ub(0xC0, 0x80, 0x60);
+   FLESH_SHADE_3;
    glVertex3f(0.75, -0.75, 3);
-   glVertex3f(1.0, -1.0, -3);
+   glVertex3f(0.75, -0.75, -3);
+   FLESH_SHADE_1;
+   glVertex3f(0.75, 0.75, 3);
+   glVertex3f(0.75, 0.75, -3);
+   FLESH_SHADE_1;
+   glVertex3f(-0.75, 0.75, 3);
+   glVertex3f(-0.75, 0.75, -3);
+   FLESH_SHADE_3;
+   glVertex3f(-0.75, -0.75, 3);
+   glVertex3f(-0.75, -0.75, -3);
+   FLESH_SHADE_3;
+   glVertex3f(0.75, -0.75, 3);
+   glVertex3f(0.75, -0.75, -3);
    glEnd();
 
    // Endpoints
    glBegin(GL_QUADS);
-   glColor3ub(0xC0, 0x80, 0x60);
-   glVertex3f(1.0, -1.0, -3);
-   glColor3ub(0xC0, 0x80, 0x60);
-   glVertex3f(-1.0, -1.0, -3);
-   glColor3ub(0xFF, 0xC0, 0xA0);
-   glVertex3f(-1.0, 1.0, -3);
-   glColor3ub(0xFF, 0xC0, 0xA0);
-   glVertex3f(1.0, 1.0, -3);
+   FLESH_SHADE_3;
+   glVertex3f(0.75, -0.75, -3);
+   FLESH_SHADE_3;
+   glVertex3f(-0.75, -0.75, -3);
+   FLESH_SHADE_1;
+   glVertex3f(-0.75, 0.75, -3);
+   FLESH_SHADE_1;
+   glVertex3f(0.75, 0.75, -3);
 
-   glColor3ub(0xC0, 0x80, 0x60);
+   FLESH_SHADE_3;
    glVertex3f(0.75, -0.75, 3);
-   glColor3ub(0xFF, 0xC0, 0xA0);
+   FLESH_SHADE_1;
    glVertex3f(0.75, 0.75, 3);
-   glColor3ub(0xFF, 0xC0, 0xA0);
+   FLESH_SHADE_1;
    glVertex3f(-0.75, 0.75, 3);
-   glColor3ub(0xC0, 0x80, 0x60);
+   FLESH_SHADE_3;
    glVertex3f(-0.75, -0.75, 3);
    glEnd();
 
@@ -457,7 +476,7 @@ static unsigned generate_sonic_hand(void)
 
    // Inside
    glBegin(GL_QUADS);
-   glColor3ub(0xA0, 0xA0, 0xA0);
+   WHITE_SHADE_4;
    glVertex3f(3, -3, -3+3);
    glVertex3f(-3, -3, -3+3);
    glVertex3f(-3, 3, -3+3);
@@ -466,61 +485,61 @@ static unsigned generate_sonic_hand(void)
 
    // Inner part
    glBegin(GL_TRIANGLE_STRIP);
-   glColor3ub(0xC0, 0xC0, 0xC0);
+   WHITE_SHADE_3;
    glVertex3f(2, -2, 0+3);
-   glColor3ub(0xE0, 0xE0, 0xE0);
+   WHITE_SHADE_2;
    glVertex3f(3, -3, -3+3);
-   glColor3ub(0xE0, 0xE0, 0xE0);
+   WHITE_SHADE_2;
    glVertex3f(2, 2, 0+3);
-   glColor3ub(0xFF, 0xFF, 0xFF);
+   WHITE_SHADE_1;
    glVertex3f(3, 3, -3+3);
-   glColor3ub(0xC0, 0xC0, 0xC0);
+   WHITE_SHADE_3;
    glVertex3f(-2, 2, 0+3);
-   glColor3ub(0xE0, 0xE0, 0xE0);
+   WHITE_SHADE_2;
    glVertex3f(-3, 3, -3+3);
-   glColor3ub(0xA0, 0xA0, 0xA0);
+   WHITE_SHADE_4;
    glVertex3f(-2, -2, 0+3);
-   glColor3ub(0xC0, 0xC0, 0xC0);
+   WHITE_SHADE_3;
    glVertex3f(-3, -3, -3+3);
-   glColor3ub(0xC0, 0xC0, 0xC0);
+   WHITE_SHADE_3;
    glVertex3f(2, -2, 0+3);
-   glColor3ub(0xE0, 0xE0, 0xE0);
+   WHITE_SHADE_2;
    glVertex3f(3, -3, -3+3);
    glEnd();
 
    // Outer part
    glBegin(GL_TRIANGLE_STRIP);
-   glColor3ub(0xE0, 0xE0, 0xE0);
-   glVertex3f(3, -3, 3+3);
+   WHITE_SHADE_2;
+   glVertex3f(3, -3, 4+3);
    glVertex3f(2, -2, 0+3);
-   glColor3ub(0xFF, 0xFF, 0xFF);
-   glVertex3f(3, 3, 3+3);
+   WHITE_SHADE_1;
+   glVertex3f(3, 3, 4+3);
    glVertex3f(2, 2, 0+3);
-   glColor3ub(0xE0, 0xE0, 0xE0);
-   glVertex3f(-3, 3, 3+3);
+   WHITE_SHADE_2;
+   glVertex3f(-3, 3, 4+3);
    glVertex3f(-2, 2, 0+3);
-   glColor3ub(0xC0, 0xC0, 0xC0);
-   glVertex3f(-3, -3, 3+3);
+   WHITE_SHADE_3;
+   glVertex3f(-3, -3, 4+3);
    glVertex3f(-2, -2, 0+3);
-   glColor3ub(0xE0, 0xE0, 0xE0);
-   glVertex3f(3, -3, 3+3);
+   WHITE_SHADE_2;
+   glVertex3f(3, -3, 4+3);
    glVertex3f(2, -2, 0+3);
    glEnd();
 
    // "Fingers"
    glBegin(GL_TRIANGLE_FAN);
-   glColor3ub(0xE0, 0xE0, 0xE0);
+   WHITE_SHADE_2;
    glVertex3f(0, 0, 6+3);
-   glColor3ub(0xE0, 0xE0, 0xE0);
-   glVertex3f(3, -3, 3+3);
-   glColor3ub(0xFF, 0xFF, 0xFF);
-   glVertex3f(3, 3, 3+3);
-   glColor3ub(0xE0, 0xE0, 0xE0);
-   glVertex3f(-3, 3, 3+3);
-   glColor3ub(0xC0, 0xC0, 0xC0);
-   glVertex3f(-3, -3, 3+3);
-   glColor3ub(0xE0, 0xE0, 0xE0);
-   glVertex3f(3, -3, 3+3);
+   WHITE_SHADE_2;
+   glVertex3f(3, -3, 4+3);
+   WHITE_SHADE_1;
+   glVertex3f(3, 3, 4+3);
+   WHITE_SHADE_2;
+   glVertex3f(-3, 3, 4+3);
+   WHITE_SHADE_3;
+   glVertex3f(-3, -3, 4+3);
+   WHITE_SHADE_2;
+   glVertex3f(3, -3, 4+3);
    glEnd();
 
    // Done
@@ -543,47 +562,47 @@ static unsigned generate_sonic_leg(void)
 
    // Main part
    glBegin(GL_TRIANGLE_STRIP);
-   glColor3ub(0x00, 0x00, 0xFF);
-   glVertex3f(1.0, 3, -1.0);
-   glColor3ub(0x00, 0x00, 0xE0);
-   glVertex3f(1.0, -3, -1.0);
-   glColor3ub(0x00, 0x00, 0xC0);
-   glVertex3f(-1.0, 3, -1.0);
-   glColor3ub(0x00, 0x00, 0xA0);
-   glVertex3f(-1.0, -3, -1.0);
-   glColor3ub(0x00, 0x00, 0xC0);
-   glVertex3f(-1.0, 3, 1.0);
-   glColor3ub(0x00, 0x00, 0xA0);
-   glVertex3f(-1.0, -3, 1.0);
-   glColor3ub(0x00, 0x00, 0xFF);
-   glVertex3f(1.0, 3, 1.0);
-   glColor3ub(0x00, 0x00, 0xE0);
-   glVertex3f(1.0, -3, 1.0);
-   glColor3ub(0x00, 0x00, 0xFF);
-   glVertex3f(1.0, 3, -1.0);
-   glColor3ub(0x00, 0x00, 0xE0);
-   glVertex3f(1.0, -3, -1.0);
+   BLUE_SHADE_1;
+   glVertex3f(0.75, 3, -0.75);
+   BLUE_SHADE_2;
+   glVertex3f(0.75, -3, -0.75);
+   BLUE_SHADE_3;
+   glVertex3f(-0.75, 3, -0.75);
+   BLUE_SHADE_4;
+   glVertex3f(-0.75, -3, -0.75);
+   BLUE_SHADE_3;
+   glVertex3f(-0.75, 3, 0.75);
+   BLUE_SHADE_4;
+   glVertex3f(-0.75, -3, 0.75);
+   BLUE_SHADE_1;
+   glVertex3f(0.75, 3, 0.75);
+   BLUE_SHADE_2;
+   glVertex3f(0.75, -3, 0.75);
+   BLUE_SHADE_1;
+   glVertex3f(0.75, 3, -0.75);
+   BLUE_SHADE_2;
+   glVertex3f(0.75, -3, -0.75);
    glEnd();
 
    // Endpoints
    glBegin(GL_QUADS);
-   glColor3ub(0x00, 0x00, 0xFF);
-   glVertex3f(1.0, 3, -1.0);
-   glColor3ub(0x00, 0x00, 0xC0);
-   glVertex3f(-1.0, 3, -1.0);
-   glColor3ub(0x00, 0x00, 0xC0);
-   glVertex3f(-1.0, 3, 1.0);
-   glColor3ub(0x00, 0x00, 0xFF);
-   glVertex3f(1.0, 3, 1.0);
+   BLUE_SHADE_1;
+   glVertex3f(0.75, 3, -0.75);
+   BLUE_SHADE_3;
+   glVertex3f(-0.75, 3, -0.75);
+   BLUE_SHADE_3;
+   glVertex3f(-0.75, 3, 0.75);
+   BLUE_SHADE_1;
+   glVertex3f(0.75, 3, 0.75);
 
-   glColor3ub(0x00, 0x00, 0xE0);
-   glVertex3f(1.0, -3, -1.0);
-   glColor3ub(0x00, 0x00, 0xE0);
-   glVertex3f(1.0, -3, 1.0);
-   glColor3ub(0x00, 0x00, 0xA0);
-   glVertex3f(-1.0, -3, 1.0);
-   glColor3ub(0x00, 0x00, 0xA0);
-   glVertex3f(-1.0, -3, -1.0);
+   BLUE_SHADE_2;
+   glVertex3f(0.75, -3, -0.75);
+   BLUE_SHADE_2;
+   glVertex3f(0.75, -3, 0.75);
+   BLUE_SHADE_4;
+   glVertex3f(-0.75, -3, 0.75);
+   BLUE_SHADE_4;
+   glVertex3f(-0.75, -3, -0.75);
    glEnd();
 
    // Done
@@ -606,29 +625,29 @@ static unsigned generate_sonic_shoe(void)
 
    // Socks
    glBegin(GL_TRIANGLE_STRIP);
-   glColor3ub(0xFF, 0xFF, 0xFF);
+   WHITE_SHADE_1;
    glVertex3f(3, 0, 3);
-   glColor3ub(0xE0, 0xE0, 0xE0);
+   WHITE_SHADE_2;
    glVertex3f(2, -3, 2);
-   glColor3ub(0xFF, 0xFF, 0xFF);
+   WHITE_SHADE_1;
    glVertex3f(3, 0, -3);
-   glColor3ub(0xE0, 0xE0, 0xE0);
+   WHITE_SHADE_2;
    glVertex3f(2, -3, -2);
-   glColor3ub(0xC0, 0xC0, 0xC0);
+   WHITE_SHADE_3;
    glVertex3f(-3, 0, -3);
-   glColor3ub(0xA0, 0xA0, 0xA0);
+   WHITE_SHADE_4;
    glVertex3f(-2, -3, -2);
-   glColor3ub(0xC0, 0xC0, 0xC0);
+   WHITE_SHADE_3;
    glVertex3f(-3, 0, 3);
-   glColor3ub(0xA0, 0xA0, 0xA0);
+   WHITE_SHADE_4;
    glVertex3f(-2, -3, 2);
-   glColor3ub(0xFF, 0xFF, 0xFF);
+   WHITE_SHADE_1;
    glVertex3f(3, 0, 3);
-   glColor3ub(0xE0, 0xE0, 0xE0);
+   WHITE_SHADE_2;
    glVertex3f(2, -3, 2);
    glEnd();
    glBegin(GL_QUADS);
-   glColor3ub(0xE0, 0xE0, 0xE0);
+   WHITE_SHADE_2;
    glVertex3f(3, 0, 3);
    glVertex3f(3, 0, -3);
    glVertex3f(-3, 0, -3);
@@ -637,54 +656,54 @@ static unsigned generate_sonic_shoe(void)
 
    // Back
    glBegin(GL_TRIANGLE_STRIP);
-   glColor3ub(0xFF, 0x00, 0x00);
+   RED_SHADE_1;
    glVertex3f(2, -3, -2);
-   glColor3ub(0xC0, 0x00, 0x00);
+   RED_SHADE_3;
    glVertex3f(1, -7, -4);
-   glColor3ub(0xC0, 0x00, 0x00);
+   RED_SHADE_3;
    glVertex3f(-2, -3, -2);
-   glColor3ub(0xA0, 0x00, 0x00);
+   RED_SHADE_4;
    glVertex3f(-5, -7, -3);
-   glColor3ub(0xC0, 0x00, 0x00);
+   RED_SHADE_3;
    glVertex3f(-2, -3, 2);
-   glColor3ub(0xA0, 0x00, 0x00);
+   RED_SHADE_4;
    glVertex3f(-5, -7, 3);
-   glColor3ub(0xFF, 0x00, 0x00);
+   RED_SHADE_1;
    glVertex3f(2, -3, 2);
-   glColor3ub(0xC0, 0x00, 0x00);
+   RED_SHADE_3;
    glVertex3f(1, -7, 4);
    glEnd();
 
    // Stripes
    glBegin(GL_TRIANGLE_STRIP);
-   glColor3ub(0xC0, 0xC0, 0xC0);
+   WHITE_SHADE_3;
    glVertex3f(1, -7, 4);
-   glColor3ub(0xE0, 0xE0, 0xE0);
+   WHITE_SHADE_2;
    glVertex3f(5, -7, 4);
-   glColor3ub(0xE0, 0xE0, 0xE0);
+   WHITE_SHADE_2;
    glVertex3f(2, -3, 2);
-   glColor3ub(0xFF, 0xFF, 0xFF);
+   WHITE_SHADE_1;
    glVertex3f(5, -3, 2);
-   glColor3ub(0xE0, 0xE0, 0xE0);
+   WHITE_SHADE_2;
    glVertex3f(2, -3, -2);
-   glColor3ub(0xFF, 0xFF, 0xFF);
+   WHITE_SHADE_1;
    glVertex3f(5, -3, -2);
-   glColor3ub(0xC0, 0xC0, 0xC0);
+   WHITE_SHADE_3;
    glVertex3f(1, -7, -4);
-   glColor3ub(0xE0, 0xE0, 0xE0);
+   WHITE_SHADE_2;
    glVertex3f(5, -7, -4);
    glEnd();
 
    // Front
    glBegin(GL_TRIANGLE_FAN);
-   glColor3ub(0xE0, 0x00, 0x00);
+   RED_SHADE_2;
    glVertex3f(12, -7, 0);
-   glColor3ub(0xC0, 0x00, 0x00);
+   RED_SHADE_3;
    glVertex3f(5, -7, -4);
-   glColor3ub(0xFF, 0x00, 0x00);
+   RED_SHADE_1;
    glVertex3f(5, -3, -2);
    glVertex3f(5, -3, 2);
-   glColor3ub(0xC0, 0x00, 0x00);
+   RED_SHADE_3;
    glVertex3f(5, -7, 4);
    glEnd();
 
@@ -720,61 +739,61 @@ static unsigned generate_sonic_dash(void)
 
    // Back
    glBegin(GL_TRIANGLE_FAN);
-   glColor3ub(0xC0, 0x00, 0x00);
+   RED_SHADE_3;
    glVertex3f(-8, -4, 0);
-   glColor3ub(0xFF, 0x00, 0x00);
+   RED_SHADE_1;
    glVertex3f(-4, 5, 3);
    glVertex3f(-4, 5, -3);
-   glColor3ub(0xC0, 0x00, 0x00);
+   RED_SHADE_3;
    glVertex3f(-2, 2, -3);
    glVertex3f(-2, 2, 3);
-   glColor3ub(0xFF, 0x00, 0x00);
+   RED_SHADE_1;
    glVertex3f(-4, 5, 3);
    glEnd();
 
    // Middle
    glBegin(GL_TRIANGLE_STRIP);
-   glColor3ub(0xFF, 0x00, 0x00);
+   RED_SHADE_1;
    glVertex3f(4, 8, -3);
    glVertex3f(-4, 5, -3);
    glVertex3f(4, 8, 3);
    glVertex3f(-4, 5, 3);
-   glColor3ub(0xC0, 0x00, 0x00);
+   RED_SHADE_3;
    glVertex3f(2, 2, 3);
    glVertex3f(-2, 2, 3);
    glVertex3f(2, 2, -3);
    glVertex3f(-2, 2, -3);
-   glColor3ub(0xFF, 0x00, 0x00);
+   RED_SHADE_1;
    glVertex3f(4, 8, -3);
    glVertex3f(-4, 5, -3);
    glEnd();
 
    // Front
    glBegin(GL_TRIANGLE_STRIP);
-   glColor3ub(0xFF, 0x00, 0x00);
+   RED_SHADE_1;
    glVertex3f(10, 4, -3);
    glVertex3f(4, 8, -3);
    glVertex3f(10, 4, 3);
    glVertex3f(4, 8, 3);
-   glColor3ub(0xC0, 0x00, 0x00);
+   RED_SHADE_3;
    glVertex3f(6, 0, 3);
    glVertex3f(2, 2, 3);
    glVertex3f(6, 0, -3);
    glVertex3f(2, 2, -3);
-   glColor3ub(0xFF, 0x00, 0x00);
+   RED_SHADE_1;
    glVertex3f(10, 4, -3);
    glVertex3f(4, 8, -3);
    glEnd();
    glBegin(GL_TRIANGLE_FAN);
-   glColor3ub(0xC0, 0x00, 0x00);
+   RED_SHADE_3;
    glVertex3f(11, -1, 0);
-   glColor3ub(0xFF, 0x00, 0x00);
+   RED_SHADE_1;
    glVertex3f(10, 4, -3);
    glVertex3f(10, 4, 3);
-   glColor3ub(0xC0, 0x00, 0x00);
+   RED_SHADE_3;
    glVertex3f(6, 0, 3);
    glVertex3f(6, 0, -3);
-   glColor3ub(0xFF, 0x00, 0x00);
+   RED_SHADE_1;
    glVertex3f(10, 4, -3);
    glEnd();
 
@@ -807,9 +826,9 @@ static unsigned generate_sonic_roll(void)
          float z1 = -15 * sin(deg2rad(angle));
          float z2 = -15 * sin(deg2rad(angle+30));
 
-         glColor3f(0, 0, 0.875 + y1 / 64);
+         glColor3f(0, 0, 0.75 + y1 / 48);
          glVertex3f(x1, y1, z1);
-         glColor3f(0, 0, 0.875 + y2 / 64);
+         glColor3f(0, 0, 0.75 + y2 / 48);
          glVertex3f(x2, y2, z2);
       }
       glEnd();
@@ -817,27 +836,27 @@ static unsigned generate_sonic_roll(void)
 
    // Endpoints
    glBegin(GL_TRIANGLE_FAN);
-   glColor3ub(0x00, 0x00, 0xE0);
+   BLUE_SHADE_2;
    glVertex3f(0, 0, 15);
    for (int angle = 0; angle <= 360; angle += 30) {
       float x = 15 * cos(deg2rad(angle)) * cos(deg2rad(60));
       float y = 15 * sin(deg2rad(angle)) * cos(deg2rad(60));
       float z = 15 * sin(deg2rad(60));
 
-      glColor3f(0, 0, 0.875 + y / 64);
+      glColor3f(0, 0, 0.75 + y / 48);
       glVertex3f(x, y, z);
    }
    glEnd();
 
    glBegin(GL_TRIANGLE_FAN);
-   glColor3ub(0x00, 0x00, 0xE0);
+   BLUE_SHADE_2;
    glVertex3f(0, 0, -15);
    for (int angle = 360; angle >= 0; angle -= 30) {
       float x = 15 * cos(deg2rad(angle)) * cos(deg2rad(60));
       float y = 15 * sin(deg2rad(angle)) * cos(deg2rad(60));
       float z = -15 * sin(deg2rad(60));
 
-      glColor3f(0, 0, 0.875 + y / 64);
+      glColor3f(0, 0, 0.75 + y / 48);
       glVertex3f(x, y, z);
    }
    glEnd();

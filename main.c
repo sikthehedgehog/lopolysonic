@@ -10,7 +10,13 @@
 #include "timer.h"
 #include "video.h"
 
-int main()
+// Never got SDL_main to work...
+// This is good enough for Windows and Linux anyway
+#ifdef main
+#undef main
+#endif
+
+int main(void)
 {
    // Initialize system
    SDL_Init(SDL_INIT_VIDEO | SDL_INIT_EVENTS | SDL_INIT_TIMER);

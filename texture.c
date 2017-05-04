@@ -1,3 +1,4 @@
+#include <stdint.h>
 #include <png.h>
 #include <GL/gl.h>
 #include "stb_image.h"
